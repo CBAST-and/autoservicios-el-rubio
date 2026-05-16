@@ -1,92 +1,51 @@
-# 🛞 Gomera El Rubio Pilier
+# 🚛 Grúas y Auto Servicio El Rubio Pilier
 
-Bienvenido al repositorio oficial del sitio web de **Servicio de Gomas El Rubio Pilier**, tu gomera de confianza en Higüey, La Altagracia, República Dominicana.
+Página web oficial del negocio **Auto Servicios y Grúas El Rubio Pilier**, ubicado en Higüey, República Dominicana.
 
-## 🏪 Sobre Nosotros
-
-**El Rubio Pilier** es un servicio profesional de neumáticos especializado en:
-
-- 🔧 Reparación de gomas
-- ⚖️ Balanceo computarizado
-- 📐 Alineación de precisión
-- 🔄 Cambio y montaje de neumáticos
-- 🛞 Venta de gomas nuevas y usadas
-- 🚨 Servicio de emergencia en carretera
-
-Con más de **10 años de experiencia** y **5,000+ clientes satisfechos**, nos dedicamos a mantener tu vehículo en óptimas condiciones con servicio rápido, profesional y confiable.
-
-## 📍 Ubicación
-
-**Dirección:** Higüey, La Altagracia, República Dominicana  
-**Referencia:** Frente a La Zona
-
-## 📞 Contacto
-
-- **Teléfono:** [+1 (829) 359-6188](tel:+18293596188)
-- **Email:** info@gomeraelrubio.com
-
-## ⏰ Horario de Atención
-
-- **Lunes a Viernes:** 8:00 AM - 6:00 PM
-- **Sábado:** 8:00 AM - 4:00 PM
-
-## 🌐 Visita Nuestro Sitio Web
-
-Visita nuestro sitio web oficial para conocer más sobre nuestros servicios y cómo podemos ayudarte.
-
-## 💻 Tecnología del Sitio
-
-Este sitio web está construido con:
-
-- HTML5 semántico
-- CSS3 con animaciones y variables personalizadas
-- Diseño 100% responsive
-- Google Fonts (Bebas Neue & Outfit)
-- Optimizado para rendimiento y velocidad
-
-## ✨ Características
-
-- ✅ Diseño moderno y profesional
-- ✅ Totalmente responsive (móviles, tablets, desktop)
-- ✅ Animaciones suaves y atractivas
-- ✅ Mapa interactivo de Google Maps
-- ✅ Información de contacto accesible
-- ✅ Sección completa de servicios
-
-## 📱 Síguenos en Redes Sociales
-
-- 📘 Facebook
-- 📷 Instagram
-- 💬 WhatsApp
+🌐 **Ver sitio en vivo:** [elrubiopilier.pages.dev](https://elrubiopilier.pages.dev) 
 
 ---
 
-## 🛠️ Información Técnica
+## 📋 Sobre el negocio
 
-### Estructura del Proyecto
+**Propietario:** Carlos Pilier  
+**Teléfono / WhatsApp:** 829-359-6188  
+**Dirección:** C/Paseo de Los Locutores #01, S/ Los Soto, Higüey, Rep. Dom. *(Frente a la Zona Franca)*
 
-```
-gomera-el-rubio/
-├── index.html          # Página principal del sitio
-└── README.md          # Este archivo
-```
+### Servicios
+- 🚛 **Grúa** — Servicio de remolque y asistencia en carretera, disponible **24 horas**
+- 🔧 **Taller mecánico** — Diagnóstico computarizado, cambio de aceite, reparación de tren delantero, mecánica general
+- 🛞 **Gomera** — Venta de gomas usadas importadas, reparación de pinchazos, alineación manual
 
-### Colores de Marca
-
-- **Rojo Principal:** #D4151C
-- **Amarillo Acento:** #FDB913
-- **Negro/Gris Oscuro:** #1A1A1A / #2D2D2D
-- **Blanco/Gris Claro:** #FFFFFF / #F5F5F5
-
-### Compatibilidad
-
-- ✅ Todos los navegadores modernos (Chrome, Firefox, Safari, Edge)
-- ✅ Dispositivos móviles iOS y Android
-- ✅ Tablets
-- ✅ Computadoras de escritorio
+### Horarios
+| Área | Lun – Vie | Sábado |
+|------|-----------|--------|
+| 🔧 Taller | 9:00 AM – 6:00 PM | 9:00 AM – 12:00 PM |
+| 🛞 Gomera | 8:00 AM – 7:00 PM | 8:00 AM – 5:00 PM |
+| 🚛 Grúa | 24 horas | 24 horas |
 
 ---
 
-© 2026 Gomera El Rubio Pilier. Todos los derechos reservados.
+## 🛠️ Tecnología
 
-**Servicio profesional de neumáticos en República Dominicana** 🇩🇴
+Sitio estático de una sola página (`index.html`), sin dependencias ni frameworks. Solo HTML, CSS y JavaScript vanilla.
+
+- Formulario de solicitud de servicio vinculado a **WhatsApp**
+- Formulario inteligente: se adapta según el servicio seleccionado (muestra numeración de goma o datos del vehículo según corresponda)
+- Diseño completamente **responsivo** (móvil y escritorio)
+- Botón flotante de WhatsApp en todas las secciones
+- Mapa de Google Maps embebido
+
+---
+
+## 📁 Estructura del repositorio
+
+```
+/
+└── index.html      # Todo el sitio (HTML + CSS + JS en un solo archivo)
+└── README.md       # Este archivo
+```
+
+---
+
+*Desarrollado para Auto Servicios y Grúas El Rubio Pilier · Higüey, República Dominicana*
