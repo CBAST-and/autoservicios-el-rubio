@@ -1,786 +1,1017 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Servicio de Gomas El Rubio Pilier - Expertos en neumáticos, balanceo, alineación y reparación de gomas en República Dominicana">
-    <title>Gomera El Rubio Pilier | Servicio Profesional de Neumáticos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #D4151C;
-            --primary-dark: #A01017;
-            --secondary: #1A1A1A;
-            --accent: #FDB913;
-            --light: #F5F5F5;
-            --white: #FFFFFF;
-            --gray: #6B7280;
-            --dark-gray: #2D2D2D;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            color: var(--secondary);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 3px solid var(--primary);
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--white);
-            letter-spacing: 2px;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            min-height: 90vh;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark-gray) 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 21, 28, 0.03) 35px, rgba(212, 21, 28, 0.03) 70px);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 5rem;
-            color: var(--white);
-            line-height: 0.95;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-text h1 .highlight {
-            color: var(--primary);
-            display: block;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--light);
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 21, 28, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 0.8s ease-out 0.5s both;
-        }
-
-        .tire-icon {
-            width: 100%;
-            max-width: 500px;
-            height: 500px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .tire-outer {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 40px solid var(--primary);
-            position: relative;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .tire-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 60%;
-            background: var(--dark-gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
-        }
-
-        .tire-center {
-            width: 40%;
-            height: 40%;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(253, 185, 19, 0.4);
-        }
-
-        .tire-tread {
-            position: absolute;
-            width: 8px;
-            height: 60px;
-            background: var(--secondary);
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: var(--light);
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            color: var(--secondary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-        }
-
-        .services-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 35px rgba(212, 21, 28, 0.15);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            color: var(--white);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-        }
-
-        .about-text p {
-            color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-box {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-box::before {
-            content: '🚙';
-            font-size: 15rem;
-            position: absolute;
-            bottom: -35px;
-            right: -45px;
-            opacity: 1;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-            background: var(--secondary);
-            color: var(--white);
-        }
-
-        .contact-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contact-details h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .contact-details p {
-            color: var(--light);
-            line-height: 1.6;
-        }
-
-        .contact-details a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: var(--white);
-        }
-
-        .map-placeholder {
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            height: 100%;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-gray);
-            color: var(--light);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-content p {
-            margin-bottom: 0.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 3.5rem;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Grúas y Auto Servicio El Rubio Pilier — Servicio de grúa 24 horas, taller mecánico y gomera en Higüey, República Dominicana. Tel: 829-359-6188">
+<title>Grúas y Auto Servicio El Rubio Pilier | Higüey, RD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --yellow: #FFD000;
+    --yellow-dark: #C9A800;
+    --blue: #0055AA;
+    --blue-dark: #003D7A;
+    --dark: #0C1116;
+    --dark2: #151D27;
+    --dark3: #1E2A38;
+    --text: #EEF0F3;
+    --text-muted: #8A97A8;
+    --white: #ffffff;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--dark2); }
+  ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(12, 17, 22, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--yellow);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: 44px; height: 44px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 18px;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+  .nav-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .nav-title span { color: var(--yellow); }
+  .nav-links {
+    display: flex; align-items: center; gap: 1.8rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted);
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--yellow); }
+  .nav-cta {
+    background: var(--yellow); color: var(--dark) !important;
+    padding: 8px 18px; border-radius: 6px;
+    font-weight: 700 !important; letter-spacing: 0 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--yellow-dark) !important; color: var(--dark) !important; }
+  .nav-mobile-btn {
+    display: none; background: none; border: none;
+    cursor: pointer; padding: 8px;
+  }
+  .nav-mobile-btn span {
+    display: block; width: 24px; height: 2px;
+    background: var(--text); border-radius: 2px; margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  #inicio {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0C1116 0%, #0D1F35 60%, #0C1116 100%);
+    position: relative;
+    display: flex; align-items: center;
+    padding: 100px 2rem 4rem;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,208,0,0.03) 0, rgba(255,208,0,0.03) 1px, transparent 0, transparent 50%);
+    background-size: 40px 40px;
+  }
+  .hero-accent {
+    position: absolute; right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(255,208,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-accent2 {
+    position: absolute; left: -100px; bottom: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,85,170,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,208,0,0.12); border: 1px solid rgba(255,208,0,0.3);
+    color: var(--yellow); padding: 6px 16px; border-radius: 40px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--yellow);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 0.95; text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .hero-h1 span { color: var(--yellow); }
+  .hero-slogan {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic; font-weight: 600;
+    font-size: 1.3rem; color: var(--text-muted);
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--yellow);
+    padding-left: 1rem;
+  }
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--yellow); color: var(--dark);
+    padding: 14px 28px; border-radius: var(--radius-sm);
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,0.25);
+    padding: 13px 28px; border-radius: var(--radius-sm);
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+
+  /* Hero right: stat cards */
+  .hero-right {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .hero-stat-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-stat::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--yellow);
+  }
+  .hero-stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 2.8rem;
+    color: var(--yellow); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.85rem; color: var(--text-muted);
+    margin-top: 4px; font-weight: 600;
+  }
+  .hero-truck {
+    background: rgba(0,85,170,0.08);
+    border: 1px solid rgba(0,85,170,0.2);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .truck-icon {
+    font-size: 3.5rem; flex-shrink: 0;
+    filter: drop-shadow(0 0 20px rgba(255,208,0,0.4));
+  }
+  .truck-info strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.2rem; color: var(--white);
+    display: block;
+  }
+  .truck-info p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--yellow);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase; color: var(--white);
+    line-height: 1.05; margin-bottom: 1rem;
+  }
+  .section-title span { color: var(--yellow); }
+  .section-sub {
+    color: var(--text-muted); font-size: 1.05rem;
+    max-width: 600px; margin-bottom: 3rem;
+  }
+
+  /* ── SERVICES ── */
+  #servicios { background: var(--dark2); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .service-card:hover { transform: translateY(-4px); border-color: var(--yellow); }
+  .service-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--yellow);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    font-size: 3rem; margin-bottom: 1.25rem;
+    display: block;
+  }
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1.6rem;
+    text-transform: uppercase; color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .service-card h3 span { color: var(--yellow); }
+  .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+  .service-list {
+    list-style: none; display: flex; flex-direction: column; gap: 6px;
+  }
+  .service-list li {
+    font-size: 0.9rem; color: var(--text);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .service-list li::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--yellow); flex-shrink: 0;
+  }
+  .badge-24 {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    background: var(--yellow); color: var(--dark);
+    padding: 4px 12px; border-radius: 40px;
+    font-size: 0.75rem; font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FORMULARIO ── */
+  #solicitar { background: var(--dark); }
+  .form-layout {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: start;
+    margin-top: 2rem;
+  }
+  .form-info-side { }
+  .form-info-side h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.4rem; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .form-info-side p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .info-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .info-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,208,0,0.1); border: 1px solid rgba(255,208,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .info-item strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 2px; }
+  .info-item span { color: var(--text-muted); font-size: 0.85rem; }
+  .form-box {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
+  .form-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1.5rem;
+    text-transform: uppercase; color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .form-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.75rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block; font-size: 0.8rem; font-weight: 700;
+    color: var(--text-muted); letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white); font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.95rem; padding: 12px 14px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--yellow); }
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: var(--dark2); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-wa {
+    width: 100%; padding: 15px;
+    background: #25D366; color: white;
+    border: none; border-radius: var(--radius-sm);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 1.5rem;
+  }
+  .btn-wa:hover { background: #1dae55; transform: translateY(-2px); }
+  .btn-wa svg { width: 22px; height: 22px; }
+
+  /* ── NOSOTROS ── */
+  #nosotros { background: var(--dark2); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-box {
+    background: var(--dark3);
+    border: 1px solid rgba(255,208,0,0.15);
+    border-radius: var(--radius);
+    overflow: hidden; position: relative;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-truck-svg { width: 80%; max-width: 340px; }
+  .about-badge {
+    position: absolute; bottom: -1rem; right: -1rem;
+    background: var(--yellow); color: var(--dark);
+    border-radius: var(--radius); padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  .about-badge strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.5rem; font-weight: 900; display: block; line-height: 1;
+  }
+  .about-badge span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; }
+  .about-content p {
+    color: var(--text-muted); font-size: 0.95rem;
+    line-height: 1.75; margin-bottom: 1.5rem;
+  }
+  .value-chips {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem;
+  }
+  .chip {
+    background: rgba(255,208,0,0.1);
+    border: 1px solid rgba(255,208,0,0.25);
+    color: var(--yellow);
+    padding: 6px 16px; border-radius: 40px;
+    font-size: 0.85rem; font-weight: 700;
+  }
+
+  /* ── CONTACTO ── */
+  #contacto { background: var(--dark); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; margin-top: 2rem;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-card {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .contact-card-icon {
+    width: 46px; height: 46px; border-radius: var(--radius-sm);
+    background: rgba(255,208,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
+  .contact-card strong {
+    display: block; color: var(--white); font-size: 0.85rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 4px;
+  }
+  .contact-card a {
+    color: var(--yellow); text-decoration: none; font-size: 1.05rem;
+    font-weight: 700; transition: color 0.2s;
+  }
+  .contact-card a:hover { color: var(--yellow-dark); }
+  .contact-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+  .map-box {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    overflow: hidden; position: relative;
+    min-height: 320px;
+  }
+  .map-box iframe {
+    width: 100%; height: 100%; min-height: 320px; border: none;
+    border-radius: var(--radius);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 1.4rem; color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .footer-logo span { color: var(--yellow); }
+  .footer-tagline { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .footer-links {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 1rem 2rem; list-style: none; margin-bottom: 2rem;
+  }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--yellow); }
+  .footer-copy {
+    color: var(--text-muted); font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.5rem;
+  }
+
+  /* ── FLOATING WHATSAPP ── */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 30px; height: 30px; }
+  .wa-float::before {
+    content: '';
+    position: absolute; inset: -4px; border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.4);
+    animation: wa-ring 2s ease-out infinite;
+  }
+  @keyframes wa-ring {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+      background: rgba(12,17,22,0.98); padding: 2rem 1.5rem;
+      gap: 1.5rem; z-index: 90;
+    }
+    .nav-links.open a { font-size: 1.2rem; }
+    .nav-mobile-btn { display: block; }
+    .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-right { display: none; }
+    #inicio { padding-top: 120px; }
+    .form-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-badge { bottom: 0; right: 0; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.25rem; }
+    .hero-h1 { font-size: 2.5rem; }
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">EL <span>RUBIO</span> PILIER</a>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>
-                    SERVICIO DE GOMAS
-                    <span class="highlight">EL RUBIO PILIER</span>
-                </h1>
-                <p>Expertos en neumáticos con años de experiencia. Ofrecemos servicio profesional, rápido y confiable para mantener tu vehículo en óptimas condiciones.</p>
-                <div class="cta-buttons">
-                    <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
-                    <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="tire-icon">
-                    <div class="tire-outer">
-                        <div class="tire-tread" style="transform: rotate(0deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(45deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(90deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(135deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(180deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(225deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(270deg) translateX(-50%);"></div>
-                        <div class="tire-tread" style="transform: rotate(315deg) translateX(-50%);"></div>
-                    </div>
-                    <div class="tire-inner">
-                        <div class="tire-center"></div>
-                    </div>
-                </div>
-            </div>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-brand">
+    <div class="nav-logo">ERP</div>
+    <div class="nav-title">El Rubio <span>Pilier</span></div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#solicitar" class="nav-cta">📋 Pedir Servicio</a></li>
+  </ul>
+  <button class="nav-mobile-btn" id="menu-btn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">Higüey, Rep. Dom. · Disponible 24/7</div>
+      <h1 class="hero-h1">
+        Grúas y<br>Auto Servicio<br><span>El Rubio</span><br>Pilier
+      </h1>
+      <p class="hero-slogan">"Usted llamando y el Rubio Llegando"</p>
+      <div class="hero-btns">
+        <a href="tel:+18293596188" class="btn-primary">
+          📞 829-359-6188
+        </a>
+        <a href="#solicitar" class="btn-secondary">
+          Solicitar Servicio →
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-num">24</div>
+          <div class="hero-stat-label">Horas disponibles</div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <h2 class="section-title">NUESTROS SERVICIOS</h2>
-        <p class="section-subtitle">Soluciones completas para el cuidado de tus neumáticos</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Reparación de Gomas</h3>
-                <p>Reparamos pinchaduras y daños menores con técnicas profesionales que garantizan la seguridad y durabilidad de tus neumáticos.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚖️</div>
-                <h3>Balanceo</h3>
-                <p>Servicio de balanceo computarizado para eliminar vibraciones y garantizar un manejo suave y seguro en tu vehículo.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📐</div>
-                <h3>Alineación</h3>
-                <p>Alineación de precisión para prolongar la vida útil de tus gomas y mejorar el rendimiento de combustible.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔄</div>
-                <h3>Cambio de Gomas</h3>
-                <p>Montaje y desmontaje profesional de neumáticos de todas las marcas y tamaños con equipo especializado.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛞</div>
-                <h3>Venta de Neumáticos</h3>
-                <p>Amplio inventario de gomas nuevas y usadas de las mejores marcas a precios competitivos.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚨</div>
-                <h3>Servicio de Emergencia</h3>
-                <p>Asistencia rápida en carretera para cambio de gomas y solución de problemas urgentes.</p>
-            </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Servicios especializados</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="nosotros" class="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>¿POR QUÉ ELEGIRNOS?</h2>
-                <p>En Gomera El Rubio Pilier contamos con años de experiencia brindando servicio de calidad a nuestros clientes. Nos especializamos en el cuidado integral de neumáticos con técnicos certificados y equipamiento de última generación.</p>
-                <p>Nuestro compromiso es ofrecer soluciones rápidas, efectivas y a precios justos. Valoramos la confianza que nuestros clientes depositan en nosotros y trabajamos cada día para superar sus expectativas.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Años de Experiencia</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5000+</span>
-                        <span class="stat-label">Clientes Satisfechos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Garantía</span>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image">
-                <div class="about-box"></div>
-            </div>
+      </div>
+      <div class="hero-truck">
+        <span class="truck-icon">🚛</span>
+        <div class="truck-info">
+          <strong>Grúa 24 Horas</strong>
+          <p>Respondemos en cualquier momento. Usted llama, nosotros llegamos.</p>
         </div>
-    </section>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-num">✔</div>
+          <div class="hero-stat-label">Diagnóstico computarizado</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">✔</div>
+          <div class="hero-stat-label">Mecánica en general</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="contact-content">
-            <div class="contact-info">
-                <h2>CONTÁCTANOS</h2>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h3>Ubicación</h3>
-                        <p>Higüey, La Altagracia, República Dominicana<br>Frente a La Zona</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-details">
-                        <h3>Teléfono</h3>
-                        <p><a href="tel:+18293596188">+1 (829) 359-6188</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
-                    <div class="contact-details">
-                        <h3>Horario</h3>
-                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábado: 8:00 AM - 4:00 PM</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@gomeraelrubio.com">info@gomeraelrubio.com</a></p>
-                    </div>
-                </div>
-            </div>
-            <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1096.7403043101513!2d-68.70921839757804!3d18.60286124249642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sdo!4v1770341706648!5m2!1sen!2sdo" 
-            width="100%" 
-            height="100%" 
-            style="border:0; border-radius: 8px; min-height: 400px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-label">Lo que hacemos</div>
+    <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+    <p class="section-sub">Todo lo que tu vehículo necesita en un solo lugar, con la confianza de años de experiencia en Higüey.</p>
+    <div class="services-grid">
+
+      <!-- Grúa -->
+      <div class="service-card">
+        <div class="badge-24">24 HRS</div>
+        <span class="service-icon">🚛</span>
+        <h3>Servicio de <span>Grúa</span></h3>
+        <p>Asistencia en carretera rápida y confiable a cualquier hora del día o la noche.</p>
+        <ul class="service-list">
+          <li>Remolque de vehículos</li>
+          <li>Asistencia en averías en carretera</li>
+          <li>Servicio en toda la región Este</li>
+          <li>Atención inmediata 24/7</li>
+          <li>Contacto directo por WhatsApp</li>
+        </ul>
+      </div>
+
+      <!-- Taller -->
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <h3>Taller <span>Mecánico</span></h3>
+        <p>Diagnóstico y reparación profesional para todo tipo de vehículos con equipos modernos.</p>
+        <ul class="service-list">
+          <li>Chequeo y diagnóstico de vehículos</li>
+          <li>Reparación de tren delantero</li>
+          <li>Cambio de aceite y filtros</li>
+          <li>Diagnóstico computarizado</li>
+          <li>Electricidad automotriz</li>
+          <li>Mecánica en general</li>
+        </ul>
+      </div>
+
+      <!-- Gomera -->
+      <div class="service-card">
+        <span class="service-icon">🛞</span>
+        <h3><span>Gomera</span></h3>
+        <p>Venta de gomas usadas importadas y reparación de pinchazos para vehículos de pasajeros y utilitarios pequeños.</p>
+        <ul class="service-list">
+          <li>Gomas usadas importadas</li>
+          <li>Reparación de pinchazos</li>
+          <li>Alineación manual con experiencia</li>
+          <li>Piezas y accesorios</li>
+          <li>Solo vehículos pequeños (no camiones)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section id="solicitar">
+  <div class="section-inner">
+    <div class="section-label">Reserva tu servicio</div>
+    <h2 class="section-title">Solicita tu <span>Servicio</span></h2>
+    <div class="form-layout">
+
+      <div class="form-info-side">
+        <h3>¿Necesitas ayuda?</h3>
+        <p>Llena el formulario y te contactaremos directamente por WhatsApp. Respondemos rápido, siempre.</p>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <strong>Llámanos directo</strong>
+            <span>829-359-6188 — Carlos Pilier, propietario</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">⏰</div>
+          <div>
+            <strong>Horarios</strong>
+            <span>🔧 Taller: Lun–Vie 9am–6pm · Sáb 9am–12pm<br>🛞 Gomera: Lun–Vie 8am–7pm · Sáb 8am–5pm<br>🚛 Grúa: 24 horas todos los días</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div>
+            <strong>Ubicación</strong>
+            <span>C/Paseo de Los Locutores #01, S/ Los Soto, Higüey. Frente a la Zona Franca.</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">💬</div>
+          <div>
+            <strong>WhatsApp disponible</strong>
+            <span>Tu solicitud llega directo al teléfono del propietario</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Pide tu Servicio</h3>
+        <p>Completa los datos y te responderemos por WhatsApp</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tu Nombre</label>
+            <input type="text" id="f-nombre" placeholder="Ej: Juan Pérez" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label>Tu Teléfono</label>
+            <input type="tel" id="f-tel" placeholder="Ej: 809-555-1234" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Servicio que necesitas</label>
+          <select id="f-servicio" onchange="adaptarFormulario(this.value)">
+            <option value="">— Selecciona un servicio —</option>
+            <optgroup label="🚛 Grúa">
+              <option value="grua|Servicio de grúa / remolque">Servicio de grúa / remolque</option>
+              <option value="grua|Asistencia en carretera">Asistencia en carretera</option>
+            </optgroup>
+            <optgroup label="🔧 Taller Mecánico">
+              <option value="taller|Diagnóstico computarizado">Diagnóstico computarizado</option>
+              <option value="taller|Cambio de aceite y filtros">Cambio de aceite y filtros</option>
+              <option value="taller|Reparación de tren delantero">Reparación de tren delantero</option>
+              <option value="taller|Chequeo general del vehículo">Chequeo general del vehículo</option>
+              <option value="taller|Reparación de frenos">Reparación de frenos</option>
+              <option value="taller|Electricidad automotriz">Electricidad automotriz</option>
+              <option value="taller|Mecánica general">Mecánica general</option>
+            </optgroup>
+            <optgroup label="🛞 Gomera">
+              <option value="gomera|Compra de gomas usadas">Compra de gomas usadas</option>
+              <option value="gomera|Reparación de pinchazos">Reparación de pinchazos</option>
+              <option value="gomera|Alineación">Alineación</option>
+              <option value="gomera|Piezas y accesorios">Piezas y accesorios</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div id="campo-vehiculo" class="form-row">
+          <div class="form-group">
+            <label>Marca del vehículo</label>
+            <input type="text" id="f-marca" placeholder="Ej: Toyota, Honda...">
+          </div>
+          <div class="form-group">
+            <label>Modelo / Año</label>
+            <input type="text" id="f-modelo" placeholder="Ej: Corolla 2018">
+          </div>
+        </div>
+
+        <div id="campo-goma" class="form-group" style="display:none;">
+          <label>Numeración de la goma</label>
+          <input type="text" id="f-goma" placeholder="Ej: 265/70/16 · 205/55/15 · 195/65/R15">
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:6px;">Formato: ancho/perfil/aro (ej: 265/70/16)</p>
+        </div>
+
+        <div class="form-group">
+          <label>Mensaje adicional (opcional)</label>
+          <textarea id="f-mensaje" placeholder="Cuéntanos más detalles de lo que necesitas..."></textarea>
+        </div>
+
+        <button class="btn-wa" id="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar por WhatsApp
+        </button>
+        <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">
+          Se abrirá WhatsApp con tu solicitud ya redactada ✔
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-img-box">
+          <!-- SVG truck illustration -->
+          <svg class="about-truck-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grúa El Rubio Pilier">
+            <defs>
+              <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFD000"/>
+                <stop offset="100%" stop-color="#C9A800"/>
+              </linearGradient>
+              <linearGradient id="cabGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFD000"/>
+                <stop offset="100%" stop-color="#B89600"/>
+              </linearGradient>
+            </defs>
+            <!-- Truck body -->
+            <rect x="10" y="90" width="240" height="80" rx="6" fill="url(#bodyGrad)"/>
+            <!-- Cab -->
+            <rect x="220" y="60" width="120" height="110" rx="8" fill="url(#cabGrad)"/>
+            <!-- Windshield -->
+            <rect x="230" y="68" width="95" height="55" rx="4" fill="#1A3A5C" opacity="0.85"/>
+            <line x1="275" y1="68" x2="275" y2="123" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <!-- Tow arm -->
+            <rect x="10" y="75" width="180" height="16" rx="4" fill="#0055AA"/>
+            <rect x="10" y="75" width="16" height="16" rx="4" fill="#003D7A"/>
+            <!-- Hook -->
+            <circle cx="192" cy="83" r="12" fill="none" stroke="#003D7A" stroke-width="5"/>
+            <rect x="188" y="83" width="8" height="12" rx="2" fill="#003D7A"/>
+            <!-- Wheels -->
+            <circle cx="70" cy="175" r="28" fill="#1A2332"/>
+            <circle cx="70" cy="175" r="18" fill="#2A3A4A"/>
+            <circle cx="70" cy="175" r="8" fill="#FFD000"/>
+            <circle cx="270" cy="175" r="28" fill="#1A2332"/>
+            <circle cx="270" cy="175" r="18" fill="#2A3A4A"/>
+            <circle cx="270" cy="175" r="8" fill="#FFD000"/>
+            <circle cx="315" cy="175" r="28" fill="#1A2332"/>
+            <circle cx="315" cy="175" r="18" fill="#2A3A4A"/>
+            <circle cx="315" cy="175" r="8" fill="#FFD000"/>
+            <!-- Lights -->
+            <rect x="334" y="90" width="14" height="10" rx="3" fill="#FFF3A0"/>
+            <rect x="334" y="108" width="14" height="8" rx="2" fill="#FF6B6B"/>
+            <!-- Bumper -->
+            <rect x="330" y="145" width="18" height="16" rx="3" fill="#888"/>
+            <!-- Text on body -->
+            <text x="120" y="140" text-anchor="middle" fill="var(--dark2)" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="13" letter-spacing="1">EL RUBIO PILIER</text>
+            <text x="120" y="157" text-anchor="middle" fill="var(--dark2)" font-family="sans-serif" font-size="9" opacity="0.7">829-359-6188</text>
+          </svg>
+          <div class="about-badge">
+            <strong>24H</strong>
+            <span>SERVICIO</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">Quiénes somos</div>
+        <h2 class="section-title">Carlos <span>Pilier</span><br>a tu Servicio</h2>
+        <p>Auto Servicios y Grúas El Rubio Pilier es un negocio familiar con años de experiencia en el sector automotriz en Higüey, República Dominicana. Fundado por Carlos Pilier, ofrecemos atención personalizada, honesta y con calidad garantizada.</p>
+        <p>Contamos con taller mecánico equipado con tecnología de diagnóstico computarizado, servicio de grúa disponible las 24 horas y una gomera con gomas usadas importadas y accesorios para vehículos de pasajeros y utilitarios pequeños.</p>
+        <p>Estamos ubicados frente a la Zona Franca de Higüey, de fácil acceso para toda la región Este del país.</p>
+        <div class="value-chips">
+          <span class="chip">✔ Honestidad</span>
+          <span class="chip">✔ Rapidez</span>
+          <span class="chip">✔ Experiencia</span>
+          <span class="chip">✔ Confianza</span>
+          <span class="chip">✔ Precios justos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="section-label">Encuéntranos</div>
+    <h2 class="section-title">Contacto y <span>Ubicación</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div>
+            <strong>Teléfono / WhatsApp</strong>
+            <a href="tel:+18293596188">829-359-6188</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div>
+            <strong>Dirección</strong>
+            <p>C/Paseo de Los Locutores #01,<br>S/ Los Soto, Higüey, Rep. Dom.<br><em style="color:var(--yellow);font-style:normal;">Frente a la Zona Franca</em></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">⏰</div>
+          <div>
+            <strong>Horario de Atención</strong>
+            <p>
+              🔧 <b>Taller:</b> Lun–Vie 9:00am–6:00pm · Sáb 9:00am–12:00pm<br>
+              🛞 <b>Gomera:</b> Lun–Vie 8:00am–7:00pm · Sáb 8:00am–5:00pm<br>
+              🚛 <b>Grúa:</b> <strong style="color:var(--yellow)">24 horas, todos los días</strong>
+            </p>
+          </div>
+        </div>
+        <a href="https://wa.me/18293596188?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20información%20sobre%20sus%20servicios." class="btn-primary" style="justify-content:center;" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1096.7403043101513!2d-68.70921839757804!3d18.60286124249642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sdo!4v1770341706648!5m2!1sen!2sdo"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Auto Servicios El Rubio Pilier">
         </iframe>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Gomera El Rubio Pilier. Todos los derechos reservados.</p>
-            <p>Servicio profesional de neumáticos en República Dominicana</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="WhatsApp">💬</a>
-            </div>
-        </div>
-    </footer>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Auto Servicios y Grúas <span>El Rubio Pilier</span></div>
+    <p class="footer-tagline">"Usted llamando y el Rubio Llegando" · Higüey, Rep. Dom.</p>
+    <ul class="footer-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#solicitar">Solicitar Servicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Auto Servicios y Grúas El Rubio Pilier · Carlos Pilier, propietario · Tel: 829-359-6188</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/18293596188?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20información%20sobre%20sus%20servicios." class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Adaptive form fields based on service type
+  function adaptarFormulario(val) {
+    const esGomera = val.startsWith('gomera|') && (val.includes('gomas') || val.includes('pinchazos'));
+    document.getElementById('campo-vehiculo').style.display = esGomera ? 'none' : '';
+    document.getElementById('campo-goma').style.display = esGomera ? '' : 'none';
+    if (!esGomera) {
+      document.getElementById('f-goma').value = '';
+    } else {
+      document.getElementById('f-marca').value = '';
+      document.getElementById('f-modelo').value = '';
+    }
+  }
+
+  // WhatsApp form
+  document.getElementById('btn-whatsapp').addEventListener('click', () => {
+    const nombre = document.getElementById('f-nombre').value.trim();
+    const tel = document.getElementById('f-tel').value.trim();
+    const servicioRaw = document.getElementById('f-servicio').value;
+    const marca = document.getElementById('f-marca').value.trim();
+    const modelo = document.getElementById('f-modelo').value.trim();
+    const goma = document.getElementById('f-goma').value.trim();
+    const mensaje = document.getElementById('f-mensaje').value.trim();
+
+    if (!nombre) { alert('Por favor ingresa tu nombre.'); return; }
+    if (!servicioRaw) { alert('Por favor selecciona un servicio.'); return; }
+
+    const servicio = servicioRaw.split('|')[1];
+
+    let text = `¡Hola! Me llamo *${nombre}*`;
+    if (tel) text += ` y mi número es ${tel}`;
+    text += `.\n\n*Servicio solicitado:* ${servicio}`;
+    if (goma) text += `\n*Numeración de goma:* ${goma}`;
+    if (marca || modelo) text += `\n*Vehículo:* ${[marca, modelo].filter(Boolean).join(' ')}`;
+    if (mensaje) text += `\n\n*Detalles:* ${mensaje}`;
+    text += '\n\n_Solicitud enviada desde la página web_';
+
+    const url = `https://wa.me/18293596188?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 40
+      ? 'rgba(12,17,22,0.97)'
+      : 'rgba(12,17,22,0.92)';
+  });
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.service-card, .contact-card, .form-box, .hero-stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
